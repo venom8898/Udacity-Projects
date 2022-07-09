@@ -68,6 +68,8 @@ def classify_images(images_dir, results_dic, model):
     """
     filename_list = listdir(images_dir)
     for image in filename_list:
+        if image.startswith('.'):
+                continue
         img_path = images_dir+image
         class_result = classifier(img_path, model).lower()
         match = results_dic.get(image) in class_result

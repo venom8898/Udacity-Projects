@@ -63,6 +63,8 @@ def get_pet_labels(image_dir):
     filename_list = listdir(image_dir)
     for idx in range(0, len(filename_list)):
         if filename_list[idx] not in results_dic:
+            if filename_list[idx].startswith('.'):
+                continue
             results_dic[filename_list[idx]] = make_label(filename_list[idx])
         else:
              print("** Warning: Key=", filename_list[idx], 
